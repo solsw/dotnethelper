@@ -5,12 +5,16 @@ import (
 	"strings"
 )
 
-// Installed reports whether .NET is installed.
+// Installed reports whether [.NET] is installed.
+//
+// [.NET]: https://dotnet.microsoft.com/
 func Installed() bool {
 	return exec.Command("dotnet", "--version").Run() == nil
 }
 
-// Version returns version (as returned by 'dotnet --version') of installed .NET, if any.
+// Version returns version (as returned by 'dotnet --version') of installed [.NET], if any.
+//
+// [.NET]: https://dotnet.microsoft.com/
 func Version() (string, error) {
 	o, err := exec.Command("dotnet", "--version").Output()
 	if err != nil {

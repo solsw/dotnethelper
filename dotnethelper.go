@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-// Installed reports whether [.NET] is installed.
+// Installed determines whether [.NET] is installed.
 //
 // [.NET]: https://dotnet.microsoft.com/
 func Installed() bool {

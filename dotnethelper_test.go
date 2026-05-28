@@ -1,10 +1,19 @@
 package dotnethelper
 
 import (
+	"os/exec"
 	"testing"
 )
 
+func skipIfNoDotnet(t *testing.T) {
+	t.Helper()
+	if _, err := exec.LookPath("dotnet"); err != nil {
+		t.Skipf("dotnet not found in PATH: %v", err)
+	}
+}
+
 func TestInstalled(t *testing.T) {
+	skipIfNoDotnet(t)
 	tests := []struct {
 		name string
 		want bool
@@ -23,6 +32,7 @@ func TestInstalled(t *testing.T) {
 }
 
 func TestVersion(t *testing.T) {
+	skipIfNoDotnet(t)
 	tests := []struct {
 		name    string
 		wantErr bool

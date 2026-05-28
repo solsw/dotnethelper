@@ -14,6 +14,9 @@ func Installed() bool {
 
 // Version returns version (as returned by 'dotnet --version') of installed [.NET], if any.
 //
+// If 'dotnet --version' fails, the returned error will usually be of type [*exec.ExitError],
+// whose Stderr field contains the command's error output.
+//
 // [.NET]: https://dotnet.microsoft.com/
 func Version() (string, error) {
 	o, err := exec.Command("dotnet", "--version").Output()

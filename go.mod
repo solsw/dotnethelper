@@ -1,3 +1,3 @@
 module github.com/solsw/dotnethelper
 
-go 1.18
+go 1.26
